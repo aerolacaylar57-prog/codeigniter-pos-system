@@ -2,7 +2,7 @@
 
 <h1>User Accounts</h1>
 
-<p>List of users who can access the POS system:</p>
+<p>User records retrieved from the MySQL database:</p>
 
 <table>
     <thead>
@@ -10,21 +10,25 @@
             <th>ID</th>
             <th>Username</th>
             <th>Full Name</th>
-            <th>Role</th>
-            <th>Status</th>
+            <th>Created At</th>
         </tr>
     </thead>
 
     <tbody>
-        <?php foreach ($users as $user): ?>
+        <?php if (! empty($users)): ?>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?= esc($user['id']) ?></td>
+                    <td><?= esc($user['username']) ?></td>
+                    <td><?= esc($user['full_name']) ?></td>
+                    <td><?= esc($user['created_at']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
             <tr>
-                <td><?= esc($user['id']) ?></td>
-                <td><?= esc($user['username']) ?></td>
-                <td><?= esc($user['name']) ?></td>
-                <td><?= esc($user['role']) ?></td>
-                <td><?= esc($user['status']) ?></td>
+                <td colspan="4">No user records found.</td>
             </tr>
-        <?php endforeach; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 

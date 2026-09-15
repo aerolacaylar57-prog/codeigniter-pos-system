@@ -2,29 +2,35 @@
 
 <h1>Customer Accounts</h1>
 
-<p>List of registered customer records:</p>
+<p>Customer records retrieved from the MySQL database:</p>
 
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Customer Name</th>
+            <th>Full Name</th>
             <th>Email Address</th>
             <th>Phone Number</th>
-            <th>Address</th>
+            <th>Created At</th>
         </tr>
     </thead>
 
     <tbody>
-        <?php foreach ($customers as $customer): ?>
+        <?php if (! empty($customers)): ?>
+            <?php foreach ($customers as $customer): ?>
+                <tr>
+                    <td><?= esc($customer['id']) ?></td>
+                    <td><?= esc($customer['full_name']) ?></td>
+                    <td><?= esc($customer['email']) ?></td>
+                    <td><?= esc($customer['phone']) ?></td>
+                    <td><?= esc($customer['created_at']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
             <tr>
-                <td><?= esc($customer['id']) ?></td>
-                <td><?= esc($customer['name']) ?></td>
-                <td><?= esc($customer['email']) ?></td>
-                <td><?= esc($customer['phone']) ?></td>
-                <td><?= esc($customer['address']) ?></td>
+                <td colspan="5">No customer records found.</td>
             </tr>
-        <?php endforeach; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 

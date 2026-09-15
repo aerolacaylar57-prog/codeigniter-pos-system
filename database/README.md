@@ -1,19 +1,13 @@
-# Basic Point-of-Sale System
+# Database
 
-A four-page Point-of-Sale website developed using CodeIgniter 4.
+The `pos_system.sql` file contains the MySQL database structure and
+sample records for the Customer Accounts and User Accounts pages.
 
-## Pages
+## Import Instructions
 
-- Landing Page
-- About Page
-- Customer Accounts
-- User Accounts
-
-## Data Source
-
-The Customer Accounts and User Accounts pages use static PHP arrays.
-No database is used in this version.
-
-## Developer
-
-Hans Aerol Acaylar
+1. Start Apache and MySQL in XAMPP.
+2. Open http://localhost/phpmyadmin.
+3. Create a database named `pos_system`.
+4. Select the database and click Import.
+5. Choose `database/pos_system.sql`.
+6. Click Go.
