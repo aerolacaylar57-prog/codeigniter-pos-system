@@ -33,3 +33,21 @@ database.default.password =
 database.default.DBDriver = MySQLi
 database.default.DBPrefix =
 database.default.port = 3306
+
+## TFA3 Features
+
+- Create customer accounts with validation
+- Preserve entered form values after validation failure
+- Edit existing customer accounts
+- Create user accounts with unique username validation
+- Edit existing user accounts
+- Upload JPG and PNG avatars up to 2MB
+- Prepare uploaded avatars as 300 × 300 images
+- Display a placeholder for users without avatars
+
+## Local Setup
+
+1. Import `database/pos_system.sql` into MySQL.
+2. Configure the database settings in `.env`.
+3. Run `php spark serve --port 8081`.
+4. Open `http://localhost:8081`.

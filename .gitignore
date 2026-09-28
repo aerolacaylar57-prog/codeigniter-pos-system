@@ -17,3 +17,5 @@
 !/writable/logs/index.html
 !/writable/session/index.html
 !/writable/uploads/index.html
+/public/uploads/avatars/*
+!/public/uploads/avatars/.gitkeep

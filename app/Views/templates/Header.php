@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= esc($title) ?> | Basic POS</title>
+    <title><?= esc($title ?? 'Basic POS') ?> | Basic POS</title>
 
     <style>
         * {
@@ -57,18 +57,48 @@
             color: #0f172a;
         }
 
-        .button {
+        .button,
+        button {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 20px;
+            border: none;
             color: white;
             text-decoration: none;
             background: #2563eb;
             border-radius: 5px;
+            cursor: pointer;
         }
 
-        .button:hover {
+        .button:hover,
+        button:hover {
             background: #1d4ed8;
+        }
+
+        form p {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            max-width: 600px;
+            padding: 11px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+        }
+
+        form a {
+            display: inline-block;
+            margin-left: 12px;
+            color: #475569;
         }
 
         table {
@@ -98,6 +128,23 @@
             color: #64748b;
             text-align: center;
         }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 18px 5%;
+            }
+
+            .brand {
+                width: 100%;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -105,10 +152,10 @@
     <nav>
         <span class="brand">Basic POS</span>
 
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/customers">Customers</a>
-        <a href="/users">Users</a>
+        <a href="<?= site_url('/') ?>">Home</a>
+        <a href="<?= site_url('about') ?>">About</a>
+        <a href="<?= site_url('customers') ?>">Customers</a>
+        <a href="<?= site_url('users') ?>">Users</a>
     </nav>
 
     <main class="container">
